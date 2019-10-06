@@ -129,21 +129,21 @@ $color-white: #ffffff;
 
 .message {
   padding-bottom: 40px;
-  .message__upper {
+  &__upper {
     margin-bottom: 10px;
     display: flex;
-    .message__upper--talker {
+    &--talker {
       font-size: 16px;
       font-weight: bold;
       color: #434a54;
     }
-    .message__upper--date {
+    &--date {
       margin-left: 10px;
       font-size: 12px;
       color: #999999;
     }
   }
-  .message__comment {
+  &__comment {
     font-size: 14px;
     color: #434a54;
   }
