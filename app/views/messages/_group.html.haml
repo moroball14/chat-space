@@ -1,42 +1,6 @@
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
-.group
-  %p.group__name group-name
-  %p.group__last-message こんにちは
+- current_user.groups.each do |group|
+  = link_to '#', class: "group" do
+    .group__name
+      = group.name
+    .group__last-message
+      メッセージはまだありません。
