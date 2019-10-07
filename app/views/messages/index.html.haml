@@ -7,7 +7,7 @@
         = current_user.name
       %ul.main__menu
         %li.main__menu-icon
-          = link_to "#", class: "main__menu-icon--edit" do
+          = link_to new_group_path, class: "main__menu-icon--edit" do
             = fa_icon 'edit'
         %li.main__menu-icon
           = link_to edit_user_path(current_user), class: "main__menu-icon--cog" do

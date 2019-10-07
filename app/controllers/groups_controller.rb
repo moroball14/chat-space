@@ -1,4 +1,8 @@
 class GroupsController < ApplicationController
+  
+  def new
+  end
+  
   def create
       # Group.create(groups_params)
   end
