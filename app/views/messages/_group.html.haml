@@ -1,6 +1,7 @@
 - current_user.groups.each do |group|
-  = link_to group_messages_path(group), class: "group" do
-    .group__name
-      = group.name
-    .group__last-message
-      メッセージはまだありません。
+  = link_to group_messages_path(group) do
+    .group
+      .group__name
+        = group.name
+      .group__last-message
+        = group.show_last_message

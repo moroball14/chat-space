@@ -1,40 +1,31 @@
 .message
   .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date 2019-9-30
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
-.message
-  .message__upper
-    %p.message__upper--talker username
-    %p.message__upper--date date
-  %p.message__comment こんにちは
+    .message__upper--talker
+      = message.user.name
+    .message__upper--date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .message__comment
+    - if message.content.present?
+      %p.message__comment--content
+        = message.content
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+
+
+
+
+
+
+
+
+-# - @group.messages.each do |message|
+-#   .message
+-#     .message__upper
+-#       %p.message__upper--talker
+-#         = message.user.name
+-#       %p.message__upper--date
+-#         = message.created_at.strftime("%Y/%m/%d %H:%M")
+-#     .message__comment
+-#       -  if message.content.present?
+-#         %p.message__comment--content
+-#           = message.content
+-#       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
