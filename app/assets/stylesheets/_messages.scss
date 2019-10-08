@@ -144,7 +144,7 @@ $color-white: #ffffff;
       color: #999999;
     }
   }
-  &__comment {
+  &__comment--content {
     font-size: 14px;
     color: #434a54;
   }
@@ -175,6 +175,10 @@ $color-white: #ffffff;
   }
 }
 
+.input-form__text-image {
+  display: flex;
+}
+
 .input-box-text {
   width: calc(100vw - 545px);
   height: 50px;
@@ -190,4 +194,20 @@ $color-white: #ffffff;
   position: absolute;
   top: 10px;
   right: 0px;
+}
+
+.icon {
+  display: inline-block;
+}
+
+.input-form__submit-btn {
+  display: inline-block;
+}
+
+.input-box-image:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
