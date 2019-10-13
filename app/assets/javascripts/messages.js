@@ -36,11 +36,14 @@ $(function(){
     })
     .done(function(data){
       $(".messages").append(addHTML(data));
-      $("#message_content").val('');
+      $("#new_message")[0].reset();
       $(".right-body").animate({scrollTop: $(".right-body")[0].scrollHeight}, 'fast');
     })
     .fail(function(data){
       alert("エラーのためメッセージを送信できませんでした。");
     })
+    .always(function(data){
+      $('.input-form__submit-btn').prop('disabled', false);
+    });
   });
 });
