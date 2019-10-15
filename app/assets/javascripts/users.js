@@ -47,10 +47,10 @@ $(function(){
   });
 
   $(document).on("click",".user-search-add",function(data){ //追加を押したら「追加」を押した部分の要素を削除したい
-    $(this).parent().remove();
-    var id = $(this).attr('data-user-id');
-    var name = $(this).attr('data-user-name');
-    $('.chat-group-form__field--right').eq(2).append(addChatMember(id, name));
+    $(this).parent().remove(); //削除して
+    var id = $(this).attr('data-user-id'); //idを変数に格納して
+    var name = $(this).attr('data-user-name'); //名前を変数に格納して
+    $('.chat-group-form__field--right').eq(2).append(addChatMember(id, name)); //idとnameを引数に、addChatMemberメソッドを呼び出す
   });
 
   $(document).on("click",".user-search-remove",function(data){

@@ -1,5 +1,3 @@
--# .flash-box グループを作成しました。
-
 .chat-left-side
   .left-header
     .main
@@ -30,7 +28,6 @@
   .right-body
     .messages
       = render @messages
-    -# = render partial: "message"
 
   .right-bottom
     .input-form
@@ -42,10 +39,3 @@
               = fa_icon 'picture-o', class: 'icon'
               = f.file_field :image, class: 'hidden'
             = f.submit 'Send', class: 'input-form__submit-btn'
-
-      -# = form_for @message do |f|
-      -#   = f.text_field :content, class: "input-box-text", placeholder: "type a message"
-      -#   = f.label class: "input-box-image"
-      -#   = link_to"#", class: "input-box-image" do
-      -#     = fa_icon 'image'
-      -#   = f.submit "Send", class: "input-form__submit-btn"
