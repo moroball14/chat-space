@@ -1,4 +1,4 @@
-.message
+.message{"data-id": "#{message.id}"}
   .message__upper
     .message__upper--talker
       = message.user.name
@@ -9,23 +9,3 @@
       %p.message__comment--content
         = message.content
     = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
-
-
-
-
-
-
-
-
--# - @group.messages.each do |message|
--#   .message
--#     .message__upper
--#       %p.message__upper--talker
--#         = message.user.name
--#       %p.message__upper--date
--#         = message.created_at.strftime("%Y/%m/%d %H:%M")
--#     .message__comment
--#       -  if message.content.present?
--#         %p.message__comment--content
--#           = message.content
--#       = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
