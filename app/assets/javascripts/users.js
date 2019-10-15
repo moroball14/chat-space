@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
 
   function addHTML(data) {
     var html = `<div class="chat-group-user clearfix">
@@ -20,7 +20,7 @@ $(function(){
   $('#user-search-field').on("keyup",function(e){
     e.preventDefault();
     if ($(this).val() != '') var name = $(this).val();
-    
+
     $.ajax({
       url: '/users',
       type: 'GET',
