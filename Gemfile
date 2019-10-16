@@ -66,3 +66,7 @@ gem 'mini_magick'
 gem 'pry-byebug'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
