@@ -47,22 +47,20 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
-  // ↓リファクタリングをする
   var buildMessageHTML = function(message) {
       var content = message.content ? `${message.content}` : "";
-      var img  = message.image ? `<img class="lower-info__image" src="${message.image}">` : "";
-      //data-idが反映されるようにしている
+      var img  = message.image ? `<img src=${message.image}>`: "";
       var html = `<div class="message" data-id=${message.id}>
-                    <div class="upper-message">
-                      <div class="upper-message__user-name">
+                    <div class="message__upper">
+                      <div class="message__upper--talker">
                         ${message.user_name}
                       </div>
-                      <div class="upper-message__date">
+                      <div class="message__upper--date">
                         ${message.created_at}
                       </div>
                     </div>
-                    <div class="lower-message">
-                      <p class="lower-message__content">
+                    <div class="message__comment">
+                      <p class="message__comment--content">
                         ${content}
                       </p>
                       ${img}
@@ -71,27 +69,23 @@ $(document).on('turbolinks:load', function(){
     return html;
   };
 
+  // 自動更新機能
   var reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
-      //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
       last_message_id = $('.message:last').data('id');
       $.ajax({
-        //ルーティングで設定した通りのURLを指定
         url: 'api/messages#index {:format=>"json"}',
-        //ルーティングで設定した通りhttpメソッドをgetに指定
         type: 'get',
         dataType: 'json',
-        //dataオプションでリクエストに値を含める
         data: {id: last_message_id}
       })
       .done(function(messages) {
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
-        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
         messages.forEach(function(message){
-          insertHTML = buildHTML(message);         //メッセージが入ったHTMLを取得
+          insertHTML = buildMessageHTML(message);         //メッセージが入ったHTMLを取得
           $('.messages').append(insertHTML);       //メッセージを追加
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          $(".right-body").animate({scrollTop: $(".right-body")[0].scrollHeight}, 'fast');
         });
 
       })
