@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function(){
+$(function(){
 
   function addHTML(data) {
     var html = `<div class="chat-group-user clearfix">
@@ -41,9 +41,6 @@ $(document).on('turbolinks:load',function(){
         $('.user-search-add').parent().remove();
       }
     });
-    // .fail(function(){
-    //   $('#user-search-result').append('<div id="error">ユーザーを取得できません</div>');
-    // });
   });
 
   $(document).on("click",".user-search-add",function(data){ //追加を押したら「追加」を押した部分の要素を削除したい
